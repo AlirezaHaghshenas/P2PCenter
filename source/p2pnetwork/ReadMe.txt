@@ -1,3 +1,2 @@
-要解决的BUG：
-1, 新块到，但状态非请求中，状态为,块号为128的整数倍，块未设置已请求状态 [已解决]
-
+To solve the BUG: 
+1, the new block, the non-requesting state, the state, the block number is an integer multiple of 128, the block is not set, the status of requests [Resolved]
