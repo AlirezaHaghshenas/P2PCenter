@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 typedef enum CONNNECT_STATUS
 {
@@ -18,7 +18,7 @@ struct ST_TRANS_STAT {
 	}
 };
 
-// ËÙ¶ÈÍ³¼Æ¼ä¸ô£¬µ¥Î»£¬Ãë
+// Speed â€‹â€‹statistics interval, units, second
 #define SPEED_STAT_INTERVAL 10
 
 class CP2PPeer
@@ -29,26 +29,26 @@ public:
 
 	virtual bool IsHaveBlock( int nBlockNum );
 
-	void CalcRequestBlock( DWORD dwBlock );	// ÒÑ·½Ïò¶Ô·½ÇëÇó¿é
-	void CalcRecvBlock( DWORD dwBlock );	// ÇëÇóµÄ¿é±»ÒÑ·½½ÓÊÕµ½
+	void CalcRequestBlock( DWORD dwBlock );	// The direction of the other party has requested block
+	void CalcRecvBlock( DWORD dwBlock );	// Party requested block has been received
 	double HealthRate();
 
-	void CalcGetBlock( DWORD dwBlock );		// ¶Ô·½ÏòÒÑ·½ÇëÇó¿é
-	void CalcSendBlock( DWORD dwBlock );	// ÒÑ·½Ïò¶Ô·½·¢ËÍ¿é
+	void CalcGetBlock( DWORD dwBlock );		// Right direction has been requested block party
+	void CalcSendBlock( DWORD dwBlock );	// The direction of the other block has been sent
 	double ReturnRate();
 
 	PEERINFO m_peerInfo;
 	map<DWORD, DWORD> m_mapBlockAreas;
 	CONNNECT_STATUS m_connStatus;
-	map<DWORD, DWORD> m_mapNeedBlocks;  // ÕâÀïµÄ¿éºÅ¾ùÊÇÒª·¢ËÍ¸ø´ËPEERµÄ£¬second ±£Áô
-	DWORD    m_dwUploadBytes;			// ÉÏ´«ÄÜÁ¦,Ê®ÃëÄÚµÄÆ½¾ùÉÏ´«×Ö½Ú µ¥Î» BYTE/Ãë
-	DWORD    m_dwRecvBytes;				// ±¾µØÍ³¼ÆÉÏ´«ÄÜÁ¦,Ê®ÃëÄÚµÄÆ½¾ù½ÓÊÕ×Ö½Ú µ¥Î» BYTE/Ãë,¶Ô´ËPEERµÄÒ»¸öÆÀ¼¶
-	DWORD    m_dwLastHeartbeatTime;		// ×îºóÒ»´Î·¢ËÍĞÄÌøÊ±¼ä
+	map<DWORD, DWORD> m_mapNeedBlocks;  // Here's block numbers are to be sent to the PEER Theï¼Œsecond Reservations
+	DWORD    m_dwUploadBytes;			// Upload capacity, average upload BYTE byte units within ten seconds / second
+	DWORD    m_dwRecvBytes;				// Local statistics upload capability, the average received byte units within ten seconds BYTE / sec, which is a rating PEER
+	DWORD    m_dwLastHeartbeatTime;		// Send heartbeat last time
 
-	DWORD    m_dwRequestBlocks;			// ÇëÇóµÄ¿éÊı
-	DWORD    m_dwReceiveBlocks;			// ÊÕµ½µÄ¿éÊı
-	DWORD    m_dwGetBlocks;				// ±»ÇëÇóµÄ¿éÊı
-	DWORD    m_dwSendBlocks;			// ·¢ËÍµÄ¿éÊı
-	list<ST_TRANS_STAT> m_listUploads;	// ÉÏ´«µÄ×Ö½ÚÁĞ±í first = time
-	list<ST_TRANS_STAT> m_listReceives;	// ½ÓÊÕµ½µÄ×Ö½ÚÁĞ±í
+	DWORD    m_dwRequestBlocks;			// The number of blocks requested
+	DWORD    m_dwReceiveBlocks;			// The number of blocks received
+	DWORD    m_dwGetBlocks;				// The requested number of blocks
+	DWORD    m_dwSendBlocks;			// The number of blocks sent
+	list<ST_TRANS_STAT> m_listUploads;	// Upload byte list first = time
+	list<ST_TRANS_STAT> m_listReceives;	// List of bytes received
 };

@@ -1,7 +1,7 @@
 #pragma once
 
 #define BLOCK_LENGTH 64 *1024	// 64K
-#define RESERVE_BLOCK_NUM	10  // 最多保留10块,多出按照策略删除
+#define RESERVE_BLOCK_NUM	10  // Up to retain 10, more in accordance with the policy is removed
 
 class CCacheBlock
 {
@@ -22,7 +22,7 @@ public:
 	virtual ~CCacheFile(void);
 	void DeleteOverTimeBlock();
 	void PushBlock( DWORD dwStartPos, char* pBuffer, DWORD dwLen);
-	DWORD GetData(  DWORD dwStartPos, char* pBuffer, DWORD dwLen);	// noexist return 0;不足长返回存在部分
+	DWORD GetData(  DWORD dwStartPos, char* pBuffer, DWORD dwLen);	// noexist return 0;There is some lack of long return
 
 protected:
 	map<CCacheBlock *, CCacheBlock *> m_Blocks;

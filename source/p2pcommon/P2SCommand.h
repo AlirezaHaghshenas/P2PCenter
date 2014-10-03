@@ -41,7 +41,7 @@ namespace P2S_COMMAND
 		static CBaseCommand* CreateReqShootToRetCmd( int nUserID, int nSessionID, int nTargetUserID );
 		static CBaseCommand* CreateReqShootArritedCmd( int nUserID, int nSessionID, const PEERINFO& targetPeerinfo);
 	};
-	//------------------------------------------------------------------------ 向服务器发送的UDP打洞包
+	//------------------------------------------------------------------------ Holes to UDP packets sent by the server
 	class CCmdShootHole : public CBaseCommand
 	{
 	public:
@@ -99,7 +99,7 @@ namespace P2S_COMMAND
 	public:
 		int m_nUserID;
 		int m_nSessionID;
-		int m_nResult; // 登录结果,0为成功
+		int m_nResult; // Login result, 0 for success
 	};
 	//------------------------------------------------------------------------
 	class CCmdGetGroups : public CBaseCommand
@@ -241,7 +241,7 @@ namespace P2S_COMMAND
 		int m_nUserID;
 		int m_nSessionID;
 		string m_sChannelID;
-		char m_cSource; // 自己是否为源 '0' '1' 否与是
+		char m_cSource; // Whether he is the source '0' 'a' and is not
 	};
 
 	class CCmdGetPeersRet : public CBaseCommand
@@ -294,7 +294,7 @@ namespace P2S_COMMAND
 		int m_nPeerCount;
 		list<PEERINFO> m_listPeers;
 	};
-	//------------------------------------------------------------------------ 向服务器TCP端口发送的打洞包,通过TCP转知目标用户向自己握手
+	//------------------------------------------------------------------------ Server TCP port to burrow package sent via TCP conveyed to the target users to their handshake
 	class CCmdReqShootTo : public CBaseCommand
 	{
 	public:
@@ -337,7 +337,7 @@ namespace P2S_COMMAND
 	public:
 		int m_nUserID;
 		int m_nSessionID;
-		PEERINFO m_peerinfoSource;	// 源用户peerinfo,收到此包后,如先前未与此用户建立连接,即向此用户发送握手包
+		PEERINFO m_peerinfoSource;	// Source user peerinfo, after receiving this package, as previously did not establish a connection with the user, namely the user to send handshake packets
 	};
 	//------------------------------------------------------------------------
 	class CCmdTcpHeartbeat : public CBaseCommand
@@ -621,7 +621,7 @@ namespace P2S_COMMAND
 		int m_nUserID;
 		int m_nSessionID;
 		int m_nID;
-		int m_nDataNum; // 序号
+		int m_nDataNum; // No.
 		unsigned short m_usDataLen;
 		char m_szData[ROOM_PACKET_MAX_LEN];
 	};
@@ -639,7 +639,7 @@ namespace P2S_COMMAND
 		int m_nUserID;
 		int m_nSessionID;
 		int m_nID;
-		int m_nDataNum; // 序号
+		int m_nDataNum; // No.
 		unsigned short m_usDataLen;
 	};
 
@@ -656,7 +656,7 @@ namespace P2S_COMMAND
 		int m_nUserID;
 		int m_nSessionID;
 		int m_nID;
-		int m_nDataNum; // 序号
+		int m_nDataNum; // No.
 		unsigned char m_ucBroadcastNum; // listBroadcastIndex size
 		list<unsigned char> m_listBroadcastIndex; // user index in room
 		unsigned short m_usDataLen;
@@ -677,7 +677,7 @@ namespace P2S_COMMAND
 		int m_nSessionID;
 		int m_nID;
 		int m_nDataNum;
-		int m_nPriority; // 0 最大
+		int m_nPriority; // 0 Maximum
 	};
 
 	class CCmdRoomGetDataRet : public CBaseCommand
@@ -693,7 +693,7 @@ namespace P2S_COMMAND
 		int m_nUserID;
 		int m_nSessionID;
 		int m_nID;
-		int m_nDataNum; // 序号
+		int m_nDataNum; // No.
 		unsigned short m_usDataLen;
 		char m_szData[ROOM_PACKET_MAX_LEN];
 	};
@@ -726,7 +726,7 @@ namespace P2S_COMMAND
 		int m_nUserID;
 		int m_nSessionID;
 		int m_nID;
-		int m_nRet;	// 0：正常关闭成功， -1:没有权限，-2:房间不存在 -3:锁定
+		int m_nRet;	// 0: Normal closed success, -1: No permission -2: room does not exist -3: Lock
 	};
 	//------------------------------------------------------------------------
 
@@ -743,13 +743,13 @@ namespace P2S_COMMAND
 		int m_nUserID;
 		int m_nSessionID;
 		int m_nID;
-		char m_cRemoveAllFlag;		// 全部删除标志，如为1,删除所有监控，0==添加
-		char m_cTransType;			// 传输方向，1 == 收，2 == 发
-		char m_cMonitorType;		// 监控类型：1 == P2S TCP， 2 == P2S UDP, 3 == P2P TCP, 4 = P2P UDP
-		char m_cTransWeight;		// 传输数据的量： 1 == 包里全部数据， 2 == 仅CMD ID
-		char m_cSendInterval;		// 监控发送最小间隔，精确到毫秒。
-		int m_nDstIP;				// 目标UDP IP
-		unsigned short m_usDstPort;	// 目标UDP PORT
+		char m_cRemoveAllFlag;		// Remove all signs, such as 1, delete all monitoring, 0 == add
+		char m_cTransType;			// Transmission direction, a == income, 2 == hair
+		char m_cMonitorType;		// Monitor Type：1 == P2S TCP， 2 == P2S UDP, 3 == P2P TCP, 4 = P2P UDP
+		char m_cTransWeight;		// The amount of transmitted data: 1 == bag all the data, only 2 = the CMD ID
+		char m_cSendInterval;		// Monitor sends the minimum interval, accurate to the millisecond
+		int m_nDstIP;				// Target UDP IP
+		unsigned short m_usDstPort;	// Target UDP PORT
 	};
 	//------------------------------------------------------------------------
 

@@ -40,8 +40,8 @@ protected:
 private:
 	string			m_sID;
 	char			m_szHashID[16];
-	bool			m_bSource;  // 文件源
-	LONGLONG		m_llFileSize; // 文件长度
+	bool			m_bSource;  // File Source
+	LONGLONG		m_llFileSize; // File length
 	CKFile			m_file;
 	CCacheFile		m_cacheFile;
 	string			m_sChannelName;

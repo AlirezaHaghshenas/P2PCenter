@@ -14,12 +14,12 @@ public:
 	void ClearData();
 
 public:
-	char m_cTransType;			// 传输方向，1 == 收，2 == 发
-	char m_cMonitorType;		// 监控类型：1 == P2S TCP， 2 == P2S UDP, 3 == P2P TCP, 4 = P2P UDP
-	char m_cTransWeight;		// 传输数据的量： 1 == 包里全部数据， 2 == 仅CMD ID,  目前忽略，发送全部包内容
-	char m_cSendInterval;		// 监控发送最小间隔，精确到秒。
-	int m_nDstIP;				// 目标UDP IP
-	unsigned short m_usDstPort;	// 目标UDP PORT
+	char m_cTransType;			// Transmission direction, a == income, 2 == hair
+	char m_cMonitorType;		// Monitor Type：1 == P2S TCP， 2 == P2S UDP, 3 == P2P TCP, 4 = P2P UDP
+	char m_cTransWeight;		// The amount of transmitted data: 1 == bag all the data, 2 == only CMD ID, currently ignored, send all package contents
+	char m_cSendInterval;		// Monitor sends the minimum interval, accurate to seconds。
+	int m_nDstIP;				// The goal UDP IP
+	unsigned short m_usDstPort;	// The goal UDP PORT
 
 private:
 	CKUdpSocket m_udpSocket;

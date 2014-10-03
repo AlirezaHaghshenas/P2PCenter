@@ -44,7 +44,7 @@ public:
 	CTransMonitorMgr m_transMonitorMgr;
 
 protected:
-	bool			m_bAuthSucceed; // 是否认证成功 CONNECT
+	bool			m_bAuthSucceed; // Whether authentication is successful CONNECT
 	bool			m_bWantStop;
 	ITcpClient*     m_pClient;
 	CKEvent			m_evConnect;

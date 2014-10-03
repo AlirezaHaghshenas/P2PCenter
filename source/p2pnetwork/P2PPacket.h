@@ -14,8 +14,8 @@ public:
 	virtual ~CP2PPacket(void);
 
 	char* m_pBuffer;
-	// 最近发送请求的时间戳
+	// Recent transmission request timestamp
 	DWORD m_dwLastRequest;
-	// 是不有效,即是否已取得了数据
+	// Is not a valid, i.e., whether the data has been made
 	PACKET_STATUS  m_packetStatus;
 };

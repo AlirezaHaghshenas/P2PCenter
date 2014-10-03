@@ -16,7 +16,7 @@ public:
 
 	void QueryExistBlocks( const char* pChannelID );
 	bool GetNeedSendCmd( list<P2P_COMMAND::CCmdGetSegmentRet *>& listCmd );
-	//mapRequests 闭区间，要更新已请求状态列表 
+	//mapRequests Closed interval, to update the status of the request list 
 	void SendGetSegment( const char* pChannelID, DWORD dwStartBlock, DWORD dwEndBlock, map<DWORD, DWORD>& mapRequests);
 	void SendHeartbeat( const char* pChannelID );
 

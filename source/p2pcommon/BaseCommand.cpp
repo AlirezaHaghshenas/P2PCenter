@@ -1,4 +1,4 @@
-#include ".\basecommand.h"
+﻿#include ".\basecommand.h"
 
 //------------------------------------------------------------------------------------
 CBaseCommand::CBaseCommand( unsigned int nCommandID ) : 
