@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
+    </Filter>
+    <Filter Include="P2PCommon">
+      <UniqueIdentifier>{019168ac-753a-4d24-ab67-25f44461b7b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{67b3871b-9f70-4859-a9db-f574b7280947}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CacheFile.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Channel.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ChannelMgr.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Config.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P2PApp.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P2PNetwork.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P2PPacket.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P2PPacketMgr.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P2PPeer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P2PPeerBittorrent.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P2PPeerEdonkey.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P2PPeerFtp.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P2PPeerHttp.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P2PPeerK8General.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P2PPeerK8Source.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P2PPeerMgr.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TransMonitor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TransMonitorMgr.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="UdpClient.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\P2PCommon\BaseCommand.cpp">
+      <Filter>P2PCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\P2PCommon\P2PCommand.cpp">
+      <Filter>P2PCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\P2PCommon\P2SCommand.cpp">
+      <Filter>P2PCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\common\misc\Array.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\common\misc\InternetUrl.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\common\misc\KDebug.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\common\io\KFile.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\common\log\KLog.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\common\network\KSocket.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\common\io\KStream.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\common\misc\KString.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\common\thread\KThread.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\common\thread\KTimer.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\common\misc\MD5.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\common\misc\StringBuffer.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CacheFile.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Channel.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChannelMgr.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="P2PApp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="P2PNetwork.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="P2PPacket.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="P2PPacketMgr.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="P2PPeer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="P2PPeerBittorrent.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="P2PPeerEdonkey.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="P2PPeerFtp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="P2PPeerHttp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="P2PPeerK8General.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="P2PPeerK8Source.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="P2PPeerMgr.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TransMonitor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TransMonitorMgr.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="UdpClient.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\P2PCommon\BaseCommand.h">
+      <Filter>P2PCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\P2PCommon\P2PCommand.h">
+      <Filter>P2PCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\P2PCommon\p2pdefine.h">
+      <Filter>P2PCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\P2PCommon\P2SCommand.h">
+      <Filter>P2PCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\P2PCommon\p2sdefine.h">
+      <Filter>P2PCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\misc\InternetUrl.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\io\KFile.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\log\KLog.h">
+      <Filter>common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>

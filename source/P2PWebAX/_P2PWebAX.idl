@@ -1,0 +1,47 @@
+import "C:\Program Files (x86)\Windows Kits\8.1\Include\um\prsht.idl";
+import "C:\Program Files (x86)\Windows Kits\8.1\Include\um\mshtml.idl";
+import "c:\program files (x86)\windows kits\8.1\include\um\dimm.idl";
+import "c:\program files (x86)\windows kits\8.1\include\um\dispex.idl";
+import "C:\Program Files (x86)\Windows Kits\8.1\Include\shared\dxgitype.idl";
+import "c:\program files (x86)\windows kits\8.1\include\shared\dxgiformat.idl";
+import "C:\Program Files (x86)\Windows Kits\8.1\Include\um\mshtmhst.idl";
+import "c:\program files (x86)\windows kits\8.1\include\um\docobj.idl";
+import "C:\Program Files (x86)\Windows Kits\8.1\Include\um\exdisp.idl";
+import "C:\Program Files (x86)\Windows Kits\8.1\Include\um\objsafe.idl";
+
+[
+	object,
+	uuid(759FA1AD-9B89-4E2D-925F-BA1290B76D6A),
+	dual,
+	helpstring("IAppOpt 接口"),
+	pointer_default(unique)
+] 
+#line 23 "c:\\work\\p2p\\source\\p2pwebax\\appopt.h"
+interface IAppOpt : IDispatch {
+#line 25 "c:\\work\\p2p\\source\\p2pwebax\\appopt.h"
+	[id(1),helpstring("方法StartApp")] HRESULT  StartApp();
+	[id(2),helpstring("方法StopApp")] HRESULT  StopApp();
+	[propget,id(3),helpstring("属性 ListenPort")] HRESULT  ListenPort([out,retval] ULONG *pVal);
+	[propget,id(4),helpstring("属性 ServiceVersion")] HRESULT  ServiceVersion([out,retval] BSTR *pVal);
+	[id(5),helpstring("方法UpdateService")] HRESULT  UpdateService();
+};
+
+
+[ version(1.0), uuid(32A59ADA-352F-4427-BCBD-784AB3F936A2), helpstring("P2PWebAX 1.0 类型库") ]
+library P2PWebAX
+{
+	importlib("stdole2.tlb");
+	importlib("olepro32.dll");
+
+	[
+		version(1.0),
+		uuid(E7506F35-82CD-4DCF-8F77-923A87A2D91A),
+		helpstring("AppOpt Class")
+	] 
+#line 45 "c:\\work\\p2p\\source\\p2pwebax\\appopt.h"
+	coclass CAppOpt {
+		interface IAppOpt;
+	};
+
+}
+
