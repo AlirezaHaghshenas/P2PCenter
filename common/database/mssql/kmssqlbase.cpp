@@ -5,7 +5,7 @@ static int g_nComInitCount = 0;
 
 CKMSSqlBase::CKMSSqlBase()
 {
-	strcpy( m_pcConnection, "\"driver={SQL Server};server=serverip;uid=dbuser;pwd=dbpassword;database=dbname\"");
+	strcpy( m_pcConnection, "\"driver={SQL Server};server=.;uid=p2puser;pwd=p2ppass;database=p2p\"");
 
 	if ( 0 == g_nComInitCount)
 	{
