@@ -1,8 +1,8 @@
-// stdafx.cpp : 只包括标准包含文件的源文件
-// P2PNetwork.pch 将成为预编译头
-// stdafx.obj 将包含预编译类型信息
+// stdafx.cpp : Includes only standard source file that contains the file
+// P2PNetwork.pch Will be pre-compiled headers
+// stdafx.obj Will contain the pre-compiled type information
 
 #include "stdafx.h"
 
-// TODO: 在 STDAFX.H 中
-//引用任何所需的附加头文件，而不是在此文件中引用
+// TODO: in STDAFX.H in
+//References to any additional header files needed, rather than by reference in this document

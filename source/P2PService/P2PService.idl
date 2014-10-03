@@ -1,8 +1,8 @@
-// P2PService.idl : P2PService 的 IDL 源
+// P2PService.idl : P2PService The IDL source
 //
 
-// 此文件将由 MIDL 工具处理以
-// 产生类型库(P2PService.tlb)和封送处理代码。
+// This file is processed by the MIDL tool to
+// Generated type library (P2PService.tlb) and marshaling code.
 
 #include "olectl.h"
 import "oaidl.idl";
@@ -13,7 +13,7 @@ import "ocidl.idl";
 	uuid(BA680543-4CFA-4ACD-A985-63BD47BBDEB8),
 	dual,
 	nonextensible,
-	helpstring("IAppOpt 接口"),
+	helpstring("IAppOpt Interface"),
 	pointer_default(unique)
 ]
 interface IAppOpt : IDispatch{
@@ -22,7 +22,7 @@ interface IAppOpt : IDispatch{
 [
 	uuid(1FF787E2-5BD5-48E0-B847-73EE443D7D71),
 	version(1.0),
-	helpstring("P2PService 1.0 类型库")
+	helpstring("P2PService 1.0 Type Library")
 ]
 library P2PServiceLib
 {

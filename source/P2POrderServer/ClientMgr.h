@@ -38,9 +38,9 @@ public:
 
 private:
 	CClient* FindClientByUserID( unsigned long nUserID );
-	// ????????????????锁
-	void NotifyLoginChannel( CChannel* pChannel, int nUserID );		// 调用前lock
-	void NotifyLogoutChannel( CChannel* pChannel, int nUserID );	// 调用前lock
+	// ????????????????Lock
+	void NotifyLoginChannel( CChannel* pChannel, int nUserID );		// Call before lock
+	void NotifyLogoutChannel( CChannel* pChannel, int nUserID );	// Call before lock
 
 public:
 	CKPtrList<CBaseCommand> m_listSendCmd;

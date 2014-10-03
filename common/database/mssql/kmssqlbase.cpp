@@ -131,7 +131,7 @@ BOOL CKMSSqlBase::Exec(char* pSql, char *pRet, int iRetLen)
 		if (FAILED(_hr))
 		{
 			m_pRecordsetPtr->Close();
-			strncpy(pRet, "SQL执行失败", iRetLen);
+			strncpy(pRet, "SQL Execution fails", iRetLen);
 			return FALSE;
 		}
 		else
@@ -141,7 +141,7 @@ BOOL CKMSSqlBase::Exec(char* pSql, char *pRet, int iRetLen)
 	}
 	catch(_com_error e)
 	{
-		sprintf(pRet, "连接数据库失败!\r\n错误信息:%s",e.ErrorMessage());
+		sprintf(pRet, "Connection to the database fails!\r\nError Messages:%s",e.ErrorMessage());
 		return FALSE;
 	}
 }

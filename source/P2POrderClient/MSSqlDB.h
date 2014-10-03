@@ -63,7 +63,7 @@ public:
 	ConfigInfo SysConfig;
 	char* ExecSP(CString sSql);
 
-	// old files 为曾经计算过HASH并正确的文件，new Files为新加入未计算过的文件
+	// old files HASH and was calculated for the correct file，new Files Not calculated for the newly added file
 	bool GetFileList( map<int, FileInfo>& mapOldFiles,  map<int, FileInfo>& mapNewFiles);
 };
 

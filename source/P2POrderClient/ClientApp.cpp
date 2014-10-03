@@ -92,7 +92,7 @@ bool CClientApp::EnumAllFiles(string sFolder)
 						pMediaFile->m_sFileName.c_str(), pMediaFile->m_sNodeName.c_str(), pMediaFile->m_sFileHash.c_str(), 
 						pMediaFile->m_llFileSize, pMediaFile->m_sFilePath.c_str(), pMediaFile->m_sFileName.c_str(), pMediaFile->m_sFileName.c_str() );
 
-					// 查找到立即发布
+					// Find the immediate release
 					PublishFiles();
 				}
 				else
@@ -142,7 +142,7 @@ bool CClientApp::PublishFilesFromDB( CMSSqlDB& db)
 	{
 		if ( !db.Open())
 		{
-			//Shervin: WriteLog( LOG_TYPE_FORCE, "数据库打开失败");
+			//Shervin: WriteLog( LOG_TYPE_FORCE, "Database open failed");
 			WriteLog( LOG_TYPE_FORCE, "Db is not open?!");
 			break;
 		}
@@ -162,7 +162,7 @@ bool CClientApp::PublishFilesFromDB( CMSSqlDB& db)
 		WriteLog(LOG_TYPE_FORCE, "oldfiles: %d, newfiles: %d, published: %d", 
 			mapOldFiles.size(), mapNewFiles.size(), m_AlreadyPublishs.size());
 
-		//关闭所有不存在旧列表里的已发布文件		
+		//Close all non-existent old file list has been released		
 		map<string, int> OldFiles;
 		//copy one
 		map<int, CMSSqlDB::FileInfo>::iterator it = mapOldFiles.begin();
@@ -178,31 +178,31 @@ bool CClientApp::PublishFilesFromDB( CMSSqlDB& db)
 			{
 				if ( m_pP2PNetwork)
 					m_pP2PNetwork->CloseSource( itpub->second);
-				CKLog::WriteLog( LOG_TYPE_FORCE, "检测到修改,关闭发布: %s", itpub->first.c_str());
-				WriteLog( LOG_TYPE_FORCE, "检测到修改,关闭发布: %s", itpub->first.c_str());
+				CKLog::WriteLog( LOG_TYPE_FORCE, "Detects the changes and close the release: %s", itpub->first.c_str());
+				WriteLog( LOG_TYPE_FORCE, "Detects the changes and close the release: %s", itpub->first.c_str());
 				itpub = m_AlreadyPublishs.erase( itpub);
 				continue;
 			}
 			itpub++;
 		}
 		
-		// 先发布曾经发布过的文件
+		// First release was released documents
 		it = mapOldFiles.begin();
 		while ( it != mapOldFiles.end())
 		{
-			//如果已成功发布，忽略
+			//If you have successfully released, ignored
 			if ( m_AlreadyPublishs.find( it->second.FileHash) != m_AlreadyPublishs.end())
 			{
 				it ++;
 				continue;
 			}
 
-			// 重新比较一下 FileSize 和 ModifyDate,如不同，放入 mapNewFiles里重新计算发布
+			// Re compare FileSize And ModifyDate,If different, put mapNewFiles Published in recalculate
 			if ( it->second.FileSize != CMediaFile::GetFileSize( it->second.FilePath) ||
 				it->second.ModifyDate != CMediaFile::GetModifyDate( it->second.FilePath))
 			{
-				CKLog::WriteLog( LOG_TYPE_FORCE, "%s, 重新比较size, date不相同", it->second.FilePath.c_str());
-				WriteLog( LOG_TYPE_FORCE, "%s, 重新比较size, date不相同", it->second.FilePath.c_str());
+				CKLog::WriteLog( LOG_TYPE_FORCE, "%s, Re compare size, date Are not the same", it->second.FilePath.c_str());
+				WriteLog( LOG_TYPE_FORCE, "%s, Re compare size, date Are not the same", it->second.FilePath.c_str());
 				mapNewFiles[it->first] = it->second;
 				it = mapOldFiles.erase( it);
 				continue;
@@ -234,19 +234,19 @@ bool CClientApp::PublishFilesFromDB( CMSSqlDB& db)
 			it ++;
 		}
 
-		// 再计算并发布新的文件
+		// Then calculate and publish new documents
 		it = mapNewFiles.begin();
 		while ( it != mapNewFiles.end())
 		{
-			//如果已成功发布，先关闭
+			//If you have successfully released, turn off
 			map<string, DWORD>::iterator it2 = m_AlreadyPublishs.find( it->second.FileHash);
 			if ( it2 != m_AlreadyPublishs.end())
 			{
 				if ( m_pP2PNetwork)
 					m_pP2PNetwork->CloseSource( it2->second);
 				m_AlreadyPublishs.erase( it2);
-				CKLog::WriteLog( LOG_TYPE_FORCE, "新文件已发布，先关闭, %s", it->second.FileName.c_str());
-				WriteLog( LOG_TYPE_FORCE, "新文件已发布，先关闭, %s", it->second.FileName.c_str());
+				CKLog::WriteLog( LOG_TYPE_FORCE, "The new document has been published, the first close, %s", it->second.FileName.c_str());
+				WriteLog( LOG_TYPE_FORCE, "The new document has been published, the first close, %s", it->second.FileName.c_str());
 			}
 
 			CMediaFile* pMediaFile = new CMediaFile();
@@ -268,7 +268,7 @@ bool CClientApp::PublishFilesFromDB( CMSSqlDB& db)
 						pMediaFile->m_sFileName.c_str(), pMediaFile->m_sNodeName.c_str(), pMediaFile->m_sFileHash.c_str(), 
 						pMediaFile->m_llFileSize, pMediaFile->m_sFilePath.c_str(), pMediaFile->m_sFileName.c_str(), pMediaFile->m_sFileName.c_str() );
 
-					// 存档
+					// Archive
 					char szRet[256];
 					sprintf( szText, 
 						"Update %s Set %s = '%s',%s = %I64u, %s = %u Where %s = %u", 
@@ -284,7 +284,7 @@ bool CClientApp::PublishFilesFromDB( CMSSqlDB& db)
 						WriteLog( LOG_TYPE_FORCE, "Update P2PPublish Failed, %s.", szText );
 					}
 
-					// 立即发布
+					// FOR IMMEDIATE RELEASE
 					PublishFiles();
 				}
 				else

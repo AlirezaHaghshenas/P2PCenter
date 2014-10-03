@@ -290,7 +290,7 @@ namespace KBASE
 			if(m_pData[m_nInIndex] != NULL )
 				return FALSE;
 			
-			//ÖÃÈë
+			//Placement
 			m_pData[m_nInIndex] = data;
 			m_nInIndex++;
 			if(m_nInIndex > BLOCKNUM-1) m_nInIndex = 0;
@@ -300,7 +300,7 @@ namespace KBASE
 		{
 			if(m_pData[m_nOutIndex] == NULL )
 				return NULL;
-			//Å×³ö
+			//Throws
 			void *ret = m_pData[m_nOutIndex];
 			m_pData[m_nOutIndex] = NULL;
 			m_nOutIndex++;

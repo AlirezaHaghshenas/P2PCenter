@@ -46,7 +46,7 @@ void CChannel::AddPeer( PEERINFO& peerinfo )
 			pCmd->m_usPort = peerinfo.usExternalUDPPort;
 			g_pNetwork->PushUdpPeerCmd( pCmd );
 		}
-		// 定向打孔 ffwk
+		// Directional drilling ffwk
 		g_pNetwork->PushRequestCmd( P2S_COMMAND::CCommandFactory::CreateReqShootToCmd( g_pNetwork->UserID(), g_pNetwork->GetRandSession(), pPeer->m_peerInfo.ulID ) );
 	}
 	else
@@ -93,7 +93,7 @@ void CChannel::AddPeer( PEERINFO& peerinfo )
 				pCmd->m_usPort = peerinfo.usExternalUDPPort;
 				g_pNetwork->PushUdpPeerCmd( pCmd );
 			}
-			// 定向打孔 ffwk
+			// Directional drilling ffwk
 			g_pNetwork->PushRequestCmd( P2S_COMMAND::CCommandFactory::CreateReqShootToCmd( g_pNetwork->UserID(), g_pNetwork->GetRandSession(), pPeer->m_peerInfo.ulID ) );
 		}
 	}
@@ -180,7 +180,7 @@ bool CChannel::OpenSource( const char* szNodeName, const char* szFilePath, const
 
 	if ( m_bSource )
 	{
-		// 打开本地文件
+		// Open the local file
 		if ( m_file.IsOpen() )
 			m_file.Close();
 
@@ -190,7 +190,7 @@ bool CChannel::OpenSource( const char* szNodeName, const char* szFilePath, const
 		m_llFileSize = m_file.Size();
 		if ( m_llFileSize != llFileSize )
 		{
-			CKLog::WriteLog( LOG_TYPE_DEBUG, "FileSize不一致, 实际: %I64u, 传入: %I64u", m_llFileSize, llFileSize );
+			CKLog::WriteLog( LOG_TYPE_DEBUG, "FileSize Inconsistent, the actual: %I64u, Incoming: %I64u", m_llFileSize, llFileSize );
 		}
 	}
 
@@ -201,7 +201,7 @@ bool CChannel::OpenSource( const char* szNodeName, const char* szFilePath, const
 	g_pNetwork->PushRequestCmd( P2S_COMMAND::CCommandFactory::CreateLoginChannelCmd( 
 		g_pNetwork->UserID(), g_pNetwork->SessionID(), szNodeName, m_sID, bSource, szFilePath, szFileName, szFileSize) );
 
-	// 源也要向服务器查询PEER列表，查询以前加入进来的PEER
+	// PEER also query the source list to the server, check the previous join the PEER
 	g_pNetwork->PushRequestCmd( P2S_COMMAND::CCommandFactory::CreateGetPeersCmd( g_pNetwork->UserID(), g_pNetwork->SessionID(), m_sID, m_bSource ) );
 
 	return true;
@@ -232,7 +232,7 @@ void CChannel::Loop()
 		m_packetMgr.UpdateTimeOutStatus( UDP_REQUEST_TIMEOUT );
 	}
 
-	SendPeerNeedBlock();	// 定时发送对方请求的块,在 peer.m_mapNeedBlocks
+	SendPeerNeedBlock();	// Block each other regularly send request, in peer.m_mapNeedBlocks
 }
 
 void CChannel::SendPeerNeedBlock()
@@ -287,14 +287,14 @@ void CChannel::SendPeerNeedBlock()
 							it = listCmd.erase( it );
 							continue;
 						}
-						else if ( dwFilePos + dwLength == m_llFileSize)	// 最后一块
+						else if ( dwFilePos + dwLength == m_llFileSize)	// The last one
 						{
 							memcpy( pCmd->m_szChannelID, m_szHashID, sizeof(pCmd->m_szChannelID) );
 							pCmd->m_nCheckSum = g_pNetwork->CalcCheckSum( pCmd->m_szBuffer, sizeof(pCmd->m_szBuffer) );
 							g_pNetwork->PushUdpPeerCmd( pCmd );
 
 							CKLog::WriteLog( LOG_TYPE_FORCE, 
-								"发送最后一块,块号：%d, 文件读取位置：%d,实际读取长度:%d,文件长度:%I64u",
+								"Send the last one, block number:%d, file read position:%d, actual read length:%d, file size:%I64u",
 								pCmd->m_nBlockNum, dwFilePos, dwLength, m_llFileSize);
 
 							it = listCmd.erase( it );
@@ -319,7 +319,7 @@ void CChannel::SendPeerNeedBlock()
 
 void CChannel::SendGetSegment()
 {
-	// 取得自己想要的块 
+	// They want to get the block 
 	DWORD dwStart, dwEnd;
 	if ( m_peerMgr.GetCount() > 0 )
 	{
@@ -332,8 +332,8 @@ void CChannel::SendGetSegment()
 				m_packetMgr.UpdatePacketStatus( mapReqeusts, PACKET_STATUS_REQUESTED);
 		}
 		/*
-		1, 确定哪些Peer 拥有此块
-		2, 优选一个Peer 发起请求,可连续请求多个块,如果均无此块,向源发起
+		1, Determine which Peer own this block
+		2, Preferably a Peer initiated the request, continuous requests for multiple blocks, if this is not the block, the source initiates
 		*/
 	}
 }

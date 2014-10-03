@@ -12,9 +12,9 @@ CP2PPacketMgr::~CP2PPacketMgr(void)
 bool CP2PPacketMgr::ReadSegment( DWORD dwStartPos, char* pBuffer, DWORD& dwLength )
 {
 	bool bRet = false;
-	// 块索引
+	// Block index
 	DWORD dwBlockIndex = dwStartPos / UDP_PACKET_LENGTH;
-	// 从当前块读取的位置
+	// From the position of the current block is read
 	DWORD dwCurBlockPos = dwStartPos - UDP_PACKET_LENGTH * dwBlockIndex;
 
 	CKAutoLock l(&m_KCritSec);
@@ -75,7 +75,7 @@ bool CP2PPacketMgr::PacketArrived( DWORD dwBlockIndex, char* pBuffer )
 		}
 		else
 		{
-			CKLog::WriteLog( LOG_TYPE_WARNING, "新块到，但状态非请求中，状态为： %d, 块号：%d", 
+			CKLog::WriteLog( LOG_TYPE_WARNING, "New block to, but non-state request, the state is： %d, Block No.：%d", 
 				it->second->m_packetStatus, dwBlockIndex);
 		}
 	}
@@ -121,7 +121,7 @@ void CP2PPacketMgr::UpdateTimeOutStatus( DWORD dwTimeUsec )
 	static DWORD dwTime = GetTickCount();
 
 	CKAutoLock l(&m_KCritSec);
-	if ( dwTime + 1000 < GetTickCount() )	// 一秒一次
+	if ( dwTime + 1000 < GetTickCount() )	// Once every second
 	{
 		map<DWORD, CP2PPacket*>::iterator it = m_map.begin();
 		while ( it != m_map.end() )
@@ -136,7 +136,7 @@ void CP2PPacketMgr::UpdateTimeOutStatus( DWORD dwTimeUsec )
 	}
 }
 
-// 调用此函式后立即发起请求
+// v
 bool CP2PPacketMgr::GetShouldBlock( DWORD& dwStart, DWORD& dwEnd )
 {
 	DWORD dwRet = 0xFFFFFFFF;
@@ -160,7 +160,7 @@ bool CP2PPacketMgr::GetShouldBlock( DWORD& dwStart, DWORD& dwEnd )
 			}
 			else
 			{
-				// 是否连号,连号一次请求P2P_TIMEREQUEST_MAX_NUM个
+				// Whether even number, even number one request P2P_TIMEREQUEST_MAX_NUM months
 				if ( it->first == (dwEnd + 1) )
 				{
 					dwEnd = it->first;
@@ -202,7 +202,7 @@ void CP2PPacketMgr::UpdatePacketStatus( const map<DWORD, DWORD>& mapRequests, PA
 		it ++;
 	}
 
-	//CKLog::WriteLog( LOG_TYPE_DEBUG, "已更新状态数： %d", dwUpdates);
+	//CKLog::WriteLog( LOG_TYPE_DEBUG, "Number of states have been updated： %d", dwUpdates);
 }
 
 bool CP2PPacketMgr::GetExistBlockAreas( map<DWORD, DWORD>& mapAreas )
@@ -219,7 +219,7 @@ bool CP2PPacketMgr::GetExistBlockAreas( map<DWORD, DWORD>& mapAreas )
 	{
 		if ( PACKET_STATUS_ARRIVED == it->second->m_packetStatus )
 		{
-			if ( 0xFFFFFFFF == dwStartPos ) // 第一次
+			if ( 0xFFFFFFFF == dwStartPos ) // The first
 			{
 				dwStartPos = it->first;
 				dwEndPos = it->first;

@@ -11,19 +11,19 @@
 	site:		opensource.kan8888.com
 *********************************************************************/
 
-// P2PWebAX.cpp : DLL 导出的实现。
+// P2PWebAX.cpp : DLL Export realization。
 
 #include "stdafx.h"
 #include "resource.h"
 
-// 模块属性使 DllMain、DllRegisterServer 和 DllUnregisterServer 为您自动实现
+// v DllMain、DllRegisterServer And DllUnregisterServer For you automatically
 [ module(dll, uuid = "{32A59ADA-352F-4427-BCBD-784AB3F936A2}", 
 		 name = "P2PWebAX", 
-		 helpstring = "P2PWebAX 1.0 类型库",
+		 helpstring = "P2PWebAX 1.0 Type Library",
 		 resource_name = "IDR_P2PWEBAX") ]
 class CP2PWebAXModule
 {
 public:
-// 重写 CAtlDllModuleT 成员
+// Rewrite CAtlDllModuleT members
 };
 		 

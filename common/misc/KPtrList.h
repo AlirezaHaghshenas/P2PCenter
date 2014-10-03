@@ -141,7 +141,7 @@ public:
 		}
 	};
 
-	// 取得特定位置元素，dwPos 从0开始，如果 dwPos 大于或等于元素个数，取得求余位置元素
+	// Obtain a specific location element，dwPos Starting from 0, if greater than or equal to the number of elements dwPos achieved remainder location element
 	T* GetElementAtPos(DWORD dwPos)
 	{
 		// CKAutoLock l(&m_lock);

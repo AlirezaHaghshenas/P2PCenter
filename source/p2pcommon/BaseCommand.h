@@ -35,7 +35,7 @@ public:
 	unsigned int ID();
 
 public:
-	// TCP MOUDLE 返回的sessionID,用于服务器端,客户端接收CMD无效
+	// TCP MOUDLE Return sessionID, For the server, the client receives an invalid CMD
 	unsigned long m_ulSocketID;
 
 protected:

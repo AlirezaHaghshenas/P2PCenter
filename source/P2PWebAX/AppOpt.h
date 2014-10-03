@@ -1,4 +1,4 @@
-// AppOpt.h : CAppOpt 的声明
+// AppOpt.h : CAppOpt Statement
 
 #pragma once
 /*/shervin added the block
@@ -9,7 +9,7 @@
 #endif
 # pragma comment(lib, "wbemuuid.lib")
 //shervin end*/
-#include "resource.h"       // 主符号
+#include "resource.h"       // Main symbol
 #include <atlctl.h>
 
 // IAppOpt
@@ -17,16 +17,16 @@
 	object,
 	uuid(759FA1AD-9B89-4E2D-925F-BA1290B76D6A),
 	dual,
-	helpstring("IAppOpt 接口"),
+	helpstring("IAppOpt Interface"),
 	pointer_default(unique)
 ]
 __interface IAppOpt : public IDispatch
 {
-	[id(1), helpstring("方法StartApp")] HRESULT StartApp(void);
-	[id(2), helpstring("方法StopApp")] HRESULT StopApp(void);
-	[propget, id(3), helpstring("属性 ListenPort")] HRESULT ListenPort([out, retval] ULONG* pVal);
-	[propget, id(4), helpstring("属性 ServiceVersion")] HRESULT ServiceVersion([out, retval] BSTR* pVal);
-	[id(5), helpstring("方法UpdateService")] HRESULT UpdateService(void);
+	[id(1), helpstring("Methods StartApp")] HRESULT StartApp(void);
+	[id(2), helpstring("Methods StopApp")] HRESULT StopApp(void);
+	[propget, id(3), helpstring("Properties ListenPort")] HRESULT ListenPort([out, retval] ULONG* pVal);
+	[propget, id(4), helpstring("Properties ServiceVersion")] HRESULT ServiceVersion([out, retval] BSTR* pVal);
+	[id(5), helpstring("Methods UpdateService")] HRESULT UpdateService(void);
 };
 
 
@@ -80,7 +80,7 @@ DECLARE_OLEMISC_STATUS(OLEMISC_RECOMPOSEONRESIZE |
 BEGIN_PROP_MAP(CAppOpt)
 	PROP_DATA_ENTRY("_cx", m_sizeExtent.cx, VT_UI4)
 	PROP_DATA_ENTRY("_cy", m_sizeExtent.cy, VT_UI4)
-	// 示例项
+	// Sample entries
 	// PROP_ENTRY("Property Description", dispid, clsid)
 	// PROP_PAGE(CLSID_StockColorPage)
 END_PROP_MAP()
@@ -90,7 +90,7 @@ BEGIN_MSG_MAP(CAppOpt)
 	CHAIN_MSG_MAP(CComControl<CAppOpt>)
 	DEFAULT_REFLECTION_HANDLER()
 END_MSG_MAP()
-// 处理程序原型: 
+// Handler Prototype: 
 //  LRESULT MessageHandler(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
 //  LRESULT CommandHandler(WORD wNotifyCode, WORD wID, HWND hWndCtl, BOOL& bHandled);
 //  LRESULT NotifyHandler(int idCtrl, LPNMHDR pnmh, BOOL& bHandled);
@@ -103,7 +103,7 @@ public:
 		HRESULT OnDraw(ATL_DRAWINFO& di)
 		{
 		RECT& rc = *(RECT*)di.prcBounds;
-		// 将剪辑区域设置为 di.prcBounds 指定的矩形
+		// The clipping region is set to di.prcBounds Specified rectangle
 		HRGN hRgnOld = NULL;
 		if (GetClipRgn(di.hdcDraw, hRgnOld) != 1)
 			hRgnOld = NULL;

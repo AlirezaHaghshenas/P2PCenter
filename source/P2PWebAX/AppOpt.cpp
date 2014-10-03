@@ -1,4 +1,4 @@
-// AppOpt.cpp : CAppOpt 的实现
+// AppOpt.cpp : CAppOpt Realization
 #include "stdafx.h"
 #include "AppOpt.h"
 #include ".\appopt.h"
@@ -98,7 +98,7 @@ STDMETHODIMP CAppOpt::StartApp(void)
 
 STDMETHODIMP CAppOpt::StopApp(void)
 {
-	// TODO: 在此添加实现代码
+	// TODO: In this add implementation code
 
 	return S_OK;
 }

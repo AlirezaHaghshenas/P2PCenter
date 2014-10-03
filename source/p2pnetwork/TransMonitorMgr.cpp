@@ -11,8 +11,8 @@ CTransMonitorMgr::~CTransMonitorMgr(void)
 }
 
 
-char m_cTransType;			// 传输方向，1 == 收，2 == 发
-char m_cMonitorType;		// 监控类型：1 == P2S TCP， 2 == P2S UDP, 3 == P2P TCP, 4 = P2P UDP
+char m_cTransType;			// Transmission direction, a == income, 2 == hair
+char m_cMonitorType;		// Monitor Type: 1 == P2S TCP, 2 == P2S UDP, 3 == P2P TCP, 4 = P2P UDP
 
 void CTransMonitorMgr::SendP2STcpRecvMonitor( const char* pData,int nLen )
 {

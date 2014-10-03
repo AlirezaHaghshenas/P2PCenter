@@ -85,7 +85,7 @@ void CP2PPeerMgr::OnPeerHandshake( int nUserID, unsigned long ulIP, unsigned sho
 	CP2PPeer* pPeer = FindNoLock( nUserID );
 	if ( pPeer )
 	{
-		// 如果未建立链接,即未收到过握手回复包,继续向对方发起握手
+		// If you do not establish a link, that has not received a reply packet handshake, continue to the other side to initiate a handshake
 		if ( CONNNECT_STATUS_CONNECTED != pPeer->m_connStatus )
 		{
 			P2P_COMMAND::CP2PBaseCommand* pCmd = P2P_COMMAND::CP2PCmdFactory::CreateHandshakeCmd( g_pNetwork->UserID(), g_pNetwork->GetRandSession() );
@@ -141,7 +141,7 @@ void CP2PPeerMgr::OnGetSegment( int nUserID, const list<DWORD>& listBlock )
 
 void CP2PPeerMgr::SendGetSegment( const char* pChannelID, DWORD dwStartBlock, DWORD dwEndBlock, map<DWORD, DWORD>& mapRequests)
 {
-	////测试段
+	////Test section
 	//if ( m_map.size() > 0)
 	//{
 	//	map<DWORD, CP2PPeer *>::iterator it = m_map.begin();
@@ -156,7 +156,7 @@ void CP2PPeerMgr::SendGetSegment( const char* pChannelID, DWORD dwStartBlock, DW
 	//	}
 	//}
 	//return;
-	////测试段
+	////Test section
 
 	if ( dwEndBlock < dwStartBlock ) return;
 
@@ -199,7 +199,7 @@ void CP2PPeerMgr::SendGetSegment( const char* pChannelID, DWORD dwStartBlock, DW
 				it->second->CalcRequestBlock( dwEnd - dwStart + 1);
 				g_pNetwork->PushUdpPeerCmd( pCmd );
 				dwAlreadySends += dwEnd - dwStart + 1;
-				//CKLog::WriteLog( LOG_TYPE_DEBUG, "已发送请求数： %d", dwAlreadySends);
+				//CKLog::WriteLog( LOG_TYPE_DEBUG, "Sent requests： %d", dwAlreadySends);
 				//==
 
 				dwStartPos = dwEnd + 1;
@@ -297,9 +297,9 @@ bool CP2PPeerMgr::GetMonitorInfo( stMonitorInfo& monInfo)
 
 bool CP2PPeerMgr::GetSortBySpeed( map<DWORD, CP2PPeer*>& mapPeers)
 {
-	// 目前暂不排序,以后优化
+	// Currently temporarily sort, after optimization
 	DWORD dwIndex = 0;
-	list<CP2PPeer *> listSources;	// 把源总是排在最后，源拥有所有块
+	list<CP2PPeer *> listSources;	// The source is always ranked in the final, the source has all the blocks
 	map<DWORD, CP2PPeer *>::iterator it = m_map.begin();
 	while ( it != m_map.end())
 	{

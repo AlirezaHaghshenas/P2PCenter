@@ -70,11 +70,11 @@ public:
 		CRect rect;
 		m_lstLog.GetClientRect(&rect);
 		m_lstLog.InsertColumn( 0, "", LVCFMT_LEFT, rect.Width());
-		ShowLog( "系统初始化");
+		ShowLog( "System initialization");
 
 		if ( !InitModule())
 		{
-			::MessageBox( m_hWnd, "模块初始化失败", "系统提示", MB_ICONERROR);
+			::MessageBox( m_hWnd, "Module initialization failure", "Prompted", MB_ICONERROR);
 			CloseDialog( 0);
 			return FALSE;
 		}

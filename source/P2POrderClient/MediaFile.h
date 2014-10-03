@@ -13,7 +13,7 @@ public:
 	bool ReadFromCache();
 	bool SaveToCache();
 
-	//return -1ÎªÊ§°Ü;
+	//return -1 For failure;
 	static LONGLONG GetFileSize( string sFilePath);
 	static unsigned int GetModifyDate( HANDLE hFile);
 	static unsigned int GetModifyDate( string sFilePath);

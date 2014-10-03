@@ -11,7 +11,7 @@
 	site:		opensource.kan8888.com
 *********************************************************************/
 
-// P2POrderServer.cpp : 定义控制台应用程序的入口点。
+// P2POrderServer.cpp : Define the entry point for the console application。
 //
 
 #include "stdafx.h"

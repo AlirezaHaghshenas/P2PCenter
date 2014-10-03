@@ -11,7 +11,7 @@
 	site:		opensource.kan8888.com
 *********************************************************************/
 
-// P2PService.cpp : WinMain 的实现
+// P2PService.cpp : WinMain Realization
 
 #include "stdafx.h"
 #include "resource.h"
@@ -41,11 +41,11 @@ public :
 	CP2PServiceModule(){};
 	HRESULT InitializeSecurity() throw()
 	{
-		// TODO : 调用 CoInitializeSecurity 并为服务提供适当的 
-		// 安全设置
-		// 建议 - PKT 级别的身份验证、
-		// RPC_C_IMP_LEVEL_IDENTIFY 的模拟级别
-		// 以及适当的非空安全说明符。
+		// TODO : Calls for service CoInitializeSecurity and provide appropriate 
+		// Security Settings
+		//	Proposal - PKT levels of authentication、
+		// RPC_C_IMP_LEVEL_IDENTIFY Impersonation level
+		// And appropriate non-empty security descriptor.
 
 		return S_OK;
 	}  
@@ -136,7 +136,7 @@ void CP2PServiceModule::RunMessageLoop()
 
 	if ( bListen )
 	{
-		// 设置共享内存监听端口为 uPort
+		// Setting listening port for shared memory uPort
 		CRegKey reg;
 		LPCTSTR lpszKey = "SOFTWARE\\P2PService_K";
 

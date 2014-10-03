@@ -20,74 +20,74 @@
 
 using namespace KBASE;
 
-/*定义操作类*/
+/*Custom Actions class*/
 class CIniFile
 {
-//构造与析构函数
+//Structure and destructor
 public:
 	CIniFile();
 	CIniFile(const char* sFileName);
 	virtual ~CIniFile();
 
-//定义私有数据成员
+//Definition of private data members
 protected:
-	//定义行结构
+	//Definition line structure
 	struct LINE_ITEM
 	{
-		int 	nType;		//类型
-		CString	sName;		//名称
-		CString sValue;		//值
+		int 	nType;		//Type
+		CString	sName;		//Name
+		CString sValue;		//Value
 	};
-	CPtrArray   	m_arrayOfLine;	//存放配置文件中的所有行
-	CString			m_sFileName;	//配置文件名称
-	int				m_nTotalSection;//总区域数
-	bool			m_bAutoFlush;	//是否自动刷新到文件?
-	bool			m_bModified;	//是否修改过
+	CPtrArray   	m_arrayOfLine;	//Stored in the configuration file for all lines
+	CString			m_sFileName;	//Profile name
+	int				m_nTotalSection;//The total number of regions
+	bool			m_bAutoFlush;	//Whether to automatically refresh the file?
+	bool			m_bModified;	//Whether the modified
 	
-//文件操作方法
+//File Operation
 public:
-	//重新初始化本对象
+	//Re-initialization of the object
 	void Reset(void);
-	//载入配置文件,成功返回0,失败返回小于0的值
+	//Load profile, successful return 0, failed to return a value less than 0
 	int LoadFromFile(const char* sFileName);
-	//刷新当前配置项到文件中,成功返回0,失败返回涉于0的值
+	//Refresh the current configuration items to file returns 0 on success, failure to return a value of 0 is involved in
 	int FlushToFile(void);
 
-//区域和配置项操作方法
+//Regional methods of operation and configuration items
 private:
-	//根据区域名称,取得所在行号
+	//According to the zone name, get the line number
 	int GetSectionIndex(int nStartLine, const char* sSectionName);
-	//根据区域行号及配置项名称,取得配置项所在行号
+	//According to the regional line number and configuration item name, get the line number where the configuration items
 	int GetKeyIndex(int nSectionIndex, const char* sKeyName);
 public:
-	//取得总区域数
+	//Obtain the total number of regions
 	int GetSectionCount(void);
-	//取得区域名称
+	//Get zone name
 	CString GetSectionName(int nIndex);
-	//取得指定区域中总配置项数
+	//Obtain the total number of configuration items in the designated area
 	int GetKeyCount(const char* sSectionName);
-	//取得配置项名称
+	//Obtain configuration item name
 	CString GetKeyName(const char* sSectionName, int nIndex);
-	//删除一个配置项
+	//To delete a configuration item
 	int DelKey(const char* sSectionName, const char* sKeyName);
-	//增加一个区域,返回索引值,失败返回小于0的值
+	//Increase in one area, the return index value, failed to return a value less than 0
 	int AddSection(const char* sSectionName);
-	//删除一个区域
+	//To delete a region
 	void DelSection(const char* sSectionName);
 	
-//配置项值操作方法
+//Configuration item value method of operation
 public:
-	//取得配置项的值(字符串)
+	//Obtain configuration item value (string)
 	CString GetString(const char* sSectionName, const char* sKeyName);
-	//取得配置项的值(整数)
+	//Obtain configuration item value (integer)
 	int GetInt(const char* sSectionName, const char* sKeyName);
-	//取得配置项的值(布尔)
+	//Obtain the value of configuration items (Boolean)
 	bool GetBool(const char* sSectionName, const char* sKeyName);
-	//设置配置项的值(字符串)
+	//Set the value of configuration items (string)
 	void SetString(const char* sSectionName, const char* sKeyName, const char* sKeyValue);
-	//设置配置项的值(整数)
+	//Setting configuration item value (integer)
 	void SetInt(const char* sSectionName, const char* sKeyName, int nKeyValue);
-	//设置配置项的值(布尔)
+	//Set the value of the configuration items (Boolean)
 	void SetBool(const char* sSectionName, const char* sKeyName, bool bKeyValue);
 };
 

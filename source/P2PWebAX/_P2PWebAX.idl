@@ -13,21 +13,21 @@ import "C:\Program Files (x86)\Windows Kits\8.1\Include\um\objsafe.idl";
 	object,
 	uuid(759FA1AD-9B89-4E2D-925F-BA1290B76D6A),
 	dual,
-	helpstring("IAppOpt 接口"),
+	helpstring("IAppOpt Interface"),
 	pointer_default(unique)
 ] 
 #line 23 "c:\\work\\p2p\\source\\p2pwebax\\appopt.h"
 interface IAppOpt : IDispatch {
 #line 25 "c:\\work\\p2p\\source\\p2pwebax\\appopt.h"
-	[id(1),helpstring("方法StartApp")] HRESULT  StartApp();
-	[id(2),helpstring("方法StopApp")] HRESULT  StopApp();
-	[propget,id(3),helpstring("属性 ListenPort")] HRESULT  ListenPort([out,retval] ULONG *pVal);
-	[propget,id(4),helpstring("属性 ServiceVersion")] HRESULT  ServiceVersion([out,retval] BSTR *pVal);
-	[id(5),helpstring("方法UpdateService")] HRESULT  UpdateService();
+	[id(1),helpstring("Methods StartApp")] HRESULT  StartApp();
+	[id(2),helpstring("Methods StopApp")] HRESULT  StopApp();
+	[propget,id(3),helpstring("Properties ListenPort")] HRESULT  ListenPort([out,retval] ULONG *pVal);
+	[propget,id(4),helpstring("Properties ServiceVersion")] HRESULT  ServiceVersion([out,retval] BSTR *pVal);
+	[id(5),helpstring("Methods UpdateService")] HRESULT  UpdateService();
 };
 
 
-[ version(1.0), uuid(32A59ADA-352F-4427-BCBD-784AB3F936A2), helpstring("P2PWebAX 1.0 类型库") ]
+[ version(1.0), uuid(32A59ADA-352F-4427-BCBD-784AB3F936A2), helpstring("P2PWebAX 1.0 Type Library") ]
 library P2PWebAX
 {
 	importlib("stdole2.tlb");

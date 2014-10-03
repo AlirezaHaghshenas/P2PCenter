@@ -37,7 +37,7 @@ void CTransMonitor::SendData()
 	CKDataBuffer* pBuf = m_listData.Pop();
 	while ( pBuf)
 	{
-		// 要优化为打成一个总包发送
+		// To optimize labeled as a total package for sending
 		if ( (nLen + pBuf->GetLen()) >= UDP_MAX_BUFFER_LENGTH)
 		{
 			if ( nLen > 0)

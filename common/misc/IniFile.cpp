@@ -10,13 +10,13 @@
 #include "IniFile.h"
 
 
-//定义行的类型
-#define LINE_TYPE_EMPTY			0	//空行
-#define LINE_TYPE_COMMENT		1	//注释
-#define LINE_TYPE_SECTION		2	//区域
-#define LINE_TYPE_KEY			3	//配置项
+//Type definition line
+#define LINE_TYPE_EMPTY			0	//Blank lines
+#define LINE_TYPE_COMMENT		1	//Comments
+#define LINE_TYPE_SECTION		2	//Regional
+#define LINE_TYPE_KEY			3	//Configuration Item
 
-//构造函数
+//Constructor
 CIniFile::CIniFile()
 {
 	m_sFileName = "";
@@ -34,19 +34,19 @@ CIniFile::CIniFile(const char* sFileName)
 
 	LoadFromFile(sFileName);
 }
-//析构函数
+//Destructor
 CIniFile::~CIniFile()
 {
 	Reset();
 }
-//重新初始化本对象
+//Re-initialization of the object
 void CIniFile::Reset(void)
 {
-	//首先存盘
+	//First Save
 	if(m_bAutoFlush)
 		FlushToFile();
 	
-	//删除所有对象
+	//Remove all objects
 	struct LINE_ITEM *pItem;
 	for(int i = m_arrayOfLine.GetSize() - 1; i >= 0; i --)
 	{
@@ -61,19 +61,19 @@ void CIniFile::Reset(void)
 	m_bAutoFlush = true;
 }
 
-//载入配置文件
+//Load profile
 int CIniFile::LoadFromFile(const char* sFileName)
 {
-	//重置
+	//Reset
 	Reset();
 	m_sFileName = sFileName;
 
-	//打开文件
+	//Open the file
 	FILE *fp = fopen(sFileName, "r");
 	if(fp == NULL)
 		return -1;
 	
-	//读取文件
+	//Read the file
 	char sBuffer[1024];
 	char *sTemp, *sFind;
 	int nLength;
@@ -155,19 +155,19 @@ int CIniFile::LoadFromFile(const char* sFileName)
 	fclose(fp);
 	return 0;
 }
-//刷新当前配置项到文件中,成功返回0,失败返回涉于0的值
+//Refresh the current configuration items to file returns 0 on success, failure to return a value of 0 is involved in
 int CIniFile::FlushToFile(void)
 {
-	//判断是否修改
+	//To determine whether changes
 	if(! m_bModified )
 		return 0;
 
-	//打开文件
+	//Open the file
 	FILE *fp = fopen(m_sFileName, "w");
 	if(fp == NULL)
 		return -1;
 
-	//写入文件
+	//Write to file
 	struct LINE_ITEM *pItem;
 	for(int i = 0; i < m_arrayOfLine.GetSize(); i ++)	
 	{
@@ -193,7 +193,7 @@ int CIniFile::FlushToFile(void)
 	m_bModified = false;
 	return 0;
 }
-//根据区域名称,取得所在行号
+//According to the zone name, get the line number
 int CIniFile::GetSectionIndex(int nStartLine, const char* sSectionName)
 {
 	struct LINE_ITEM *pItem;
@@ -206,7 +206,7 @@ int CIniFile::GetSectionIndex(int nStartLine, const char* sSectionName)
 
 	return -1;
 }
-//根据区域行号及配置项名称,取得配置项所在行号
+//According to the regional line number and configuration item name, get the line number where the configuration items
 int CIniFile::GetKeyIndex(int nSectionIndex, const char* sKeyName)
 {
 	struct LINE_ITEM *pItem;
@@ -225,12 +225,12 @@ int CIniFile::GetKeyIndex(int nSectionIndex, const char* sKeyName)
 	return -1;
 }
 
-//取得总区域数
+//Obtain the total number of regions
 int CIniFile::GetSectionCount(void)
 {
 	return m_nTotalSection;
 }
-//取得区域名称
+//Get zone name
 CString CIniFile::GetSectionName(int nIndex)
 {
 	struct LINE_ITEM *pItem;
@@ -246,7 +246,7 @@ CString CIniFile::GetSectionName(int nIndex)
 
 	return "";
 }
-//取得指定区域中总配置项数
+//Obtain the total number of configuration items in the designated area
 int CIniFile::GetKeyCount(const char* sSectionName)
 {
 	struct LINE_ITEM *pItem;
@@ -266,7 +266,7 @@ int CIniFile::GetKeyCount(const char* sSectionName)
 
 	return nTotalKey;
 }
-//取得配置项名称
+//Obtain configuration item name
 CString CIniFile::GetKeyName(const char* sSectionName, int nIndex)
 {
 	struct LINE_ITEM *pItem;
@@ -288,7 +288,7 @@ CString CIniFile::GetKeyName(const char* sSectionName, int nIndex)
 
 	return "";
 }
-//删除一个配置项
+//To delete a configuration item
 int CIniFile::DelKey(const char* sSectionName, const char* sKeyName)
 {
 	int nSectionIndex = GetSectionIndex(-1, sSectionName);
@@ -314,7 +314,7 @@ int CIniFile::DelKey(const char* sSectionName, const char* sKeyName)
 	return -1;
 }
 
-//增加一个区域,返回索引值,失败返回小于0的值
+//Increase in one area, the return index value, failed to return a value less than 0
 int CIniFile::AddSection(const char* sSectionName)
 {
 	int i = GetSectionIndex(0,sSectionName);
@@ -334,7 +334,7 @@ int CIniFile::AddSection(const char* sSectionName)
 		return i;
 	}
 }
-//删除一个区域
+//To delete a region
 void CIniFile::DelSection(const char* sSectionName)
 {
 	int i = GetSectionIndex(0,sSectionName);
@@ -365,8 +365,8 @@ void CIniFile::DelSection(const char* sSectionName)
 	}
 }
 	
-//配置项值操作方法
-//取得配置项的值(字符串)
+//Configuration item value method of operation
+//Obtain configuration item value (string)
 CString CIniFile::GetString(const char* sSectionName, const char* sKeyName)
 {
 	int i = GetSectionIndex(0,sSectionName);
@@ -381,12 +381,12 @@ CString CIniFile::GetString(const char* sSectionName, const char* sKeyName)
 
 	return "";
 }
-//取得配置项的值(整数)
+//Obtain configuration item value (integer)
 int CIniFile::GetInt(const char* sSectionName, const char* sKeyName)
 {
 	return atoi(GetString(sSectionName, sKeyName));
 }
-//取得配置项的值(布尔)
+//Obtain the value of configuration items (Boolean)
 bool CIniFile::GetBool(const char* sSectionName, const char* sKeyName)
 {
 	if(GetInt(sSectionName, sKeyName) == 0)
@@ -394,7 +394,7 @@ bool CIniFile::GetBool(const char* sSectionName, const char* sKeyName)
 	else
 		return true;
 }
-//设置配置项的值(字符串)
+//Set the value of configuration items (string)
 void CIniFile::SetString(const char* sSectionName, const char* sKeyName, const char* sKeyValue)
 {
 	int i = GetSectionIndex(0,sSectionName);
@@ -426,14 +426,14 @@ void CIniFile::SetString(const char* sSectionName, const char* sKeyName, const c
 	if(m_bAutoFlush)
 		FlushToFile();
 }
-//设置配置项的值(整数)
+//Setting configuration item value (integer)
 void CIniFile::SetInt(const char* sSectionName, const char* sKeyName, int nKeyValue)
 {
 	char sBuffer[256];
 	sprintf(sBuffer, "%d", nKeyValue);
 	SetString(sSectionName, sKeyName, sBuffer);
 }
-//设置配置项的值(布尔)
+//Set the value of the configuration items (Boolean)
 void CIniFile::SetBool(const char* sSectionName, const char* sKeyName, bool bKeyValue)
 {
 	if(bKeyValue)

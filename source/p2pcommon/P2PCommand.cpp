@@ -317,7 +317,7 @@ namespace P2P_COMMAND
 		p = push_int32_2( p, m_nUserID, nLen);
 		p = push_int32_2( p, m_nSessionID, nLen);
 		p = push_buf_2( p, m_szChannelID, sizeof(m_szChannelID), nLen);
-		// 为防止超长缓冲溢出，忽略超出部分
+		// To prevent long buffer overflow, ignoring excess
 		while ( m_mapAreas.size() * 8 > UDP_PACKET_LENGTH)
 		{
 			map<DWORD, DWORD>::reverse_iterator rit = m_mapAreas.rbegin();

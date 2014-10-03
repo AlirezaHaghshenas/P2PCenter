@@ -11,7 +11,7 @@
 	site:		opensource.kan8888.com
 *********************************************************************/
 
-// P2PNetwork.cpp : 定义 DLL 应用程序的入口点。
+// P2PNetwork.cpp : Definition DLL Application entry point。
 //
 
 #include "stdafx.h"
@@ -206,7 +206,7 @@ void CP2PNetwork::OnDisconnected(void)
 
 void CP2PNetwork::OnThreadIdle()
 {
-	// 发送 UDP 心跳
+	// Send UDP heartbeat
 	static DWORD dwLastUdpHeartbeatTime = GetTickCount();
 	if ( m_bAuthSucceed && (dwLastUdpHeartbeatTime + UDP_HEARTBEAT_INTERVAL) < GetTickCount() )
 	{
@@ -318,8 +318,8 @@ void CP2PNetwork::TransCommand( CBaseCommand* pCmd )
 	case P2S_CMD_SHOOTARRIVED:
 		{
 			P2S_COMMAND::CCmdShootArrived* pCmdShootArrived = reinterpret_cast<P2S_COMMAND::CCmdShootArrived *>(pCmd);
-			// 查询是否已与此用户连接,是,返回,否,发起握手连接
-			// 先忽略是否连接判断
+			// Check whether the user is connected with this, yes, returns, whether to initiate a handshake connection
+			// Ignore determine whether the connection
 			CKLog::WriteLog( LOG_TYPE_DEBUG, "--------ShootArrived ip: %s:%u\n",
 				inet_ntoa( *(in_addr *)(&pCmdShootArrived->m_peerinfoSource.ulExternalIP) ), pCmdShootArrived->m_peerinfoSource.usExternalUDPPort);
 

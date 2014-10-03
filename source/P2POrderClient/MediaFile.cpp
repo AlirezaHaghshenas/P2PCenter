@@ -14,7 +14,7 @@ string GetModuleFolderName()
 
 string CMediaFile::m_sCacheFileName = GetModuleFolderName() + "FilesInfoCache.ini";
 
-bool OutputStringNoMove( const char* pstr, size_t len=0 ) // 输出字符串
+bool OutputStringNoMove( const char* pstr, size_t len=0 ) // Output string
 {
 	HANDLE hStdOutput = GetStdHandle( STD_OUTPUT_HANDLE );
 	CONSOLE_SCREEN_BUFFER_INFO bInfo; 
@@ -66,7 +66,7 @@ bool CMediaFile::InitFile( string sFilePath, string sFileName )
 		}
 
 		if ( m_llFileSize != llAlreadyRead ){
-			CKLog::WriteLog( LOG_TYPE_DEBUG, "文件没有读取完整,文件长度: %I64u, 实际读取: %I64u", m_llFileSize, llAlreadyRead );
+			CKLog::WriteLog( LOG_TYPE_DEBUG, "Did not read the full document, file length: %I64u, Actually read: %I64u", m_llFileSize, llAlreadyRead );
 			CloseHandle( hFile );
 			return false;
 		}
@@ -116,7 +116,7 @@ bool CMediaFile::InitFileForDB( string sFilePath, string sFileName )
 	}
 
 	if ( m_llFileSize != llAlreadyRead ){
-		CKLog::WriteLog( LOG_TYPE_DEBUG, "文件没有读取完整,文件长度: %I64u, 实际读取: %I64u", m_llFileSize, llAlreadyRead );
+		CKLog::WriteLog( LOG_TYPE_DEBUG, "Did not read the full document, file length: %I64u, Actually read: %I64u", m_llFileSize, llAlreadyRead );
 		CloseHandle( hFile );
 		return false;
 	}

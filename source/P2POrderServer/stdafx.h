@@ -1,5 +1,5 @@
-// stdafx.h : 标准系统包含文件的包含文件，
-// 或是常用但不常更改的项目特定的包含文件
+// stdafx.h : Standard include file system contains files，
+// Common but rarely change or project specific include files
 //
 
 #pragma once
@@ -19,4 +19,4 @@ using namespace std;
 #pragma comment(lib, "TcpServer.lib")
 #pragma comment(lib, "WS2_32.lib")
 
-// TODO: 在此处引用程序要求的附加头文件
+// TODO: Additional header files referenced herein procedural requirements

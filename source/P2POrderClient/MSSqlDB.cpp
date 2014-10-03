@@ -227,12 +227,12 @@ char * CMSSqlDB::ExecSP(CString sSql)
 
 		}
 	}
-	catch(_com_error e)///捕捉异常
+	catch(_com_error e)///Catch an exception
 	{
 		CString errormessage;
-		errormessage.Format("连接数据库失败!\r\n错误信息:%s",e.ErrorMessage());
+		errormessage.Format("Connection to the database fails!\r\nError Messages:%s",e.ErrorMessage());
 		
-		//AfxMessageBox(errormessage);///显示错误信息
+		//AfxMessageBox(errormessage);///Display an error message
 	}
 
 	return NULL;
@@ -307,10 +307,10 @@ bool CMSSqlDB::GetFileList( map<int, FileInfo>& mapOldFiles,  map<int, FileInfo>
 			return true;
 
 		}
-		catch(_com_error e)///捕捉异常
+		catch(_com_error e)///Catch an exception
 		{
 			CString errormessage;
-			errormessage.Format("操作数据库失败!\r\n错误信息:%s",e.ErrorMessage());
+			errormessage.Format("Database operation fails!\r\nError Messages:%s",e.ErrorMessage());
 		}
 	}
 

@@ -18,7 +18,7 @@
 
 namespace P2P_COMMAND
 {
-	// Peer to peer 的 m_nSessionID 用来区分是否非法回复消息,只有应答方式消息才不意义
+	// Peer to peer is used to distinguish whether illegal m_nSessionID reply message, the message was not only a response mode meaning
 	//------------------------------------------------------------------------
 	class CP2PCommandQuery
 	{
@@ -91,7 +91,7 @@ namespace P2P_COMMAND
 	public:
 		int m_nUserID;
 		int m_nSessionID;
-		char m_szChannelID[16];	// 频道ID HASH码
+		char m_szChannelID[16];	// Channel ID HASH code
 	};
 
 	class CCmdGetBlockAreaRet : public CP2PBaseCommand
@@ -106,11 +106,11 @@ namespace P2P_COMMAND
 	public:
 		int m_nUserID;
 		int m_nSessionID;
-		char m_szChannelID[16];	// 频道ID HASH码
-		map<DWORD, DWORD> m_mapAreas;	// 闭区间，first 为起始位，second为终止位
+		char m_szChannelID[16];	// Channel ID HASH code
+		map<DWORD, DWORD> m_mapAreas;	// Closed interval, first starting position, second position for termination
 	};
 	//------------------------------------------------------------------------
-	// 一个请求，返回多个结果
+	// A request to return multiple results
 	class CCmdGetSegment : public CP2PBaseCommand
 	{
 	public:
@@ -123,9 +123,9 @@ namespace P2P_COMMAND
 	public:
 		int m_nUserID;
 		int m_nSessionID;
-		char m_szChannelID[16];	// 频道ID HASH码
-		int m_nStartPos;		// 起始位
-		int m_nEndPos;			// 终止位
+		char m_szChannelID[16];	// Channel ID HASH code
+		int m_nStartPos;		// Start bit
+		int m_nEndPos;			// Stop bit
 	};
 
 	class CCmdGetSegmentRet : public CP2PBaseCommand
@@ -140,9 +140,9 @@ namespace P2P_COMMAND
 	public:
 		int m_nUserID;
 		int m_nSessionID;
-		char m_szChannelID[16];	// 频道ID HASH码
-		int m_nBlockNum;		// 块号
-		int m_nCheckSum;		// 缓冲区校验码,算法为四字节简单异或
+		char m_szChannelID[16];	// Channel ID HASH code
+		int m_nBlockNum;		// Block No.
+		int m_nCheckSum;		// Buffer checksum algorithm is simple XOR four bytes
 		char m_szBuffer[UDP_PACKET_LENGTH];
 	};
 	//------------------------------------------------------------------------
@@ -158,7 +158,7 @@ namespace P2P_COMMAND
 	public:
 		int m_nUserID;
 		int m_nSessionID;
-		char m_szChannelID[16];	// 频道ID HASH码
+		char m_szChannelID[16];	// Channel ID HASH code
 	};
 
 	class CCmdStatUploadRet : public CP2PBaseCommand
@@ -173,8 +173,8 @@ namespace P2P_COMMAND
 	public:
 		int m_nUserID;
 		int m_nSessionID;
-		char m_szChannelID[16];	// 频道ID HASH码
-		int m_nUploadBytes;	// 上传每秒字节数
+		char m_szChannelID[16];	// Channel ID HASH code
+		int m_nUploadBytes;	// Upload the number of bytes per second
 	};
 	//------------------------------------------------------------------------
 	class CCmdHeartbeat : public CP2PBaseCommand
@@ -189,7 +189,7 @@ namespace P2P_COMMAND
 	public:
 		int m_nUserID;
 		int m_nSessionID;
-		char m_szChannelID[16];	// 频道ID HASH码
+		char m_szChannelID[16];	// Channel ID HASH code
 	};
 	//------------------------------------------------------------------------
 	class CCmdCancelSegment : public CP2PBaseCommand
@@ -204,9 +204,9 @@ namespace P2P_COMMAND
 	public:
 		int m_nUserID;
 		int m_nSessionID;
-		char m_szChannelID[16];	// 频道ID HASH码
-		int m_nStartNum;		// 起始号
-		int m_nEndNum;			// 结束号 闭区间
+		char m_szChannelID[16];	// Channel ID HASH code
+		int m_nStartNum;		// Start No.
+		int m_nEndNum;			// End Road closed interval
 	};
 
 	class CCmdCancelSegmentRet : public CP2PBaseCommand
@@ -221,9 +221,9 @@ namespace P2P_COMMAND
 	public:
 		int m_nUserID;
 		int m_nSessionID;
-		char m_szChannelID[16];	// 频道ID HASH码
-		int m_nStartNum;		// 起始号 实际
-		int m_nEndNum;			// 结束号 闭区间
+		char m_szChannelID[16];	// Channel ID HASH code
+		int m_nStartNum;		// No actual start
+		int m_nEndNum;			// End Road closed interval
 	};
 	//------------------------------------------------------------------------
 	class CCmdExit : public CP2PBaseCommand
@@ -238,7 +238,7 @@ namespace P2P_COMMAND
 	public:
 		int m_nUserID;
 		int m_nSessionID;
-		char m_szChannelID[16];	// 频道ID HASH码
+		char m_szChannelID[16];	// Channel ID HASH code
 	};
 	//------------------------------------------------------------------------
 };

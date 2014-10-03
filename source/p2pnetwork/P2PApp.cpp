@@ -46,11 +46,11 @@ bool CP2PApp::Connect( const char* szServerIP, unsigned short usPort )
 
 	if ( !StartThread() ) return false;
 
-	// 发送登录指令
+	// Send login command
 	PushRequestCmd( P2S_COMMAND::CCommandFactory::CreateConnectCmd( 
 		"anonymouse", "123456", m_nLocalIP, m_sLocalUdpPort, m_sLocalTcpPort ) );
 
-	// 等待认证成功
+	// Wait certification success
 #ifdef _DEBUG
 	if ( !m_evAuth.Wait( 2 * 1000 ) )
 #else
@@ -227,7 +227,7 @@ void CP2PApp::ThreadProcMain(void)
 	{
 		static DWORD dwLastTcpHeartbeatTime = GetTickCount();
 
-		CBaseCommand* pSendCmd = m_listTcpCmd.Pop();	// 非连接信令要求已认证后再行发送
+		CBaseCommand* pSendCmd = m_listTcpCmd.Pop();	// Non-connected signaling requirements after the line has been certified to send
 
 		while ( pSendCmd )
 		{
@@ -245,7 +245,7 @@ void CP2PApp::ThreadProcMain(void)
 			pSendCmd = m_listTcpCmd.Pop();
 		}
 
-		// 发送TCP心跳
+		// Send TCP heartbeat
 		if ( m_bAuthSucceed && (dwLastTcpHeartbeatTime + TCP_HEARTBEAT_INTERVAL) < GetTickCount() )
 		{
 			dwLastTcpHeartbeatTime = GetTickCount();

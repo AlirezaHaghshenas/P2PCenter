@@ -48,7 +48,7 @@ bool CChannelMgr::SaveHtmlFile( string sNodeName )
 	CKFile file;
 	if ( !file.Create( CKString(sFilePath.c_str()) ) ) return false;
 
-	// 按文件名排序
+	// Sort by file name
 	map<string, CChannel *> mapChannels;
 
 	map<string, CChannel *>::iterator it = m_map.begin();
@@ -85,7 +85,7 @@ bool CChannelMgr::SaveHtmlFile( string sNodeName )
 			pChannel->m_sNodeName.c_str(), pChannel->m_sChannelID.c_str(), 
 			pChannel->m_sFileSize.c_str(), sFileName.c_str() );
 		char szText[4096];
-		sprintf( szText, "<a href=WebCtrl.asp?%s>%s</a> <a href=Download.asp?%s>下载</a> \r\n<br>\r\n", 
+		sprintf( szText, "<a href=WebCtrl.asp?%s>%s</a> <a href=Download.asp?%s>Download</a> \r\n<br>\r\n", 
 			szPar, sFileName.c_str(), szPar );
 		if ( file.IsOpen() )
 		{

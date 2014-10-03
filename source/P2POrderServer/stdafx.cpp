@@ -1,6 +1,6 @@
-// stdafx.cpp : 只包括标准包含文件的源文件
-// P2POrderServer.pch 将成为预编译头
-// stdafx.obj 将包含预编译类型信息
+// stdafx.cpp : Includes only standard source file that contains the file
+// P2POrderServer.pch Will be pre-compiled headers
+// stdafx.obj Will contain the pre-compiled type information
 
 #include "stdafx.h"
 

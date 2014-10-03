@@ -57,7 +57,7 @@ bool CUdpClient::PushUdpPeerCmd( P2P_COMMAND::CP2PBaseCommand* pCmd )
 
 void CUdpClient::ThreadProcMain(void)
 {
-	// 接到的都是客户端的东东
+	// Received all client stuff
 	char szRecvBuffer[UDP_MAX_BUFFER_LENGTH];
 	int nRecvLength = 0;
 
@@ -111,7 +111,7 @@ void CUdpClient::ThreadProcMain(void)
 				pPeerCmd = m_listP2PCmd.Pop();
 			}
 		}
-		// 发送所有 ...
+		// Send all ...
 	}
 }
 
