@@ -41,7 +41,7 @@
     <OutDir>../../obj/$(ProjectName)/Debug\</OutDir>
     <IntDir>../../obj/$(ProjectName)/Debug\</IntDir>
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSDK_IncludePath);../../../WTL90_4140_Final\Include;</IncludePath>
+    <IncludePath>$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSDK_IncludePath);../../../WTL90_4140_Final\Include</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>../../obj/$(ProjectName)/Release\</OutDir>

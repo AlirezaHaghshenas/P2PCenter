@@ -41,8 +41,8 @@
     <_ProjectFileVersion>11.0.61030.0</_ProjectFileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>../../obj/$(ProjectName)/Debug\</OutDir>
-    <IntDir>../../obj/$(ProjectName)/Debug\</IntDir>
+    <OutDir>..\..\Debug\</OutDir>
+    <IntDir>..\..\obj\$(ProjectName)\Debug\</IntDir>
     <IgnoreImportLibrary>true</IgnoreImportLibrary>
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSDK_IncludePath);..\..\..\WTL90_4140_Final\Include;</IncludePath>
@@ -86,7 +86,7 @@
       <ProxyFileName>P2PWebAX_p.c</ProxyFileName>
     </Midl>
     <PostBuildEvent>
-      <Message>执行注册</Message>
+      <Message>Perform registration</Message>
       <Command>regsvr32 /s /c "$(TargetPath)"</Command>
     </PostBuildEvent>
     <ResourceCompile>
